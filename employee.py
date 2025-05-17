@@ -16,6 +16,8 @@ class Employee:
         self.__profession = profession
         self.__current_project = current_project
         self.__project_backlog = project_backlog if project_backlog is not None else []
+        if current_project not in self.__project_backlog:
+            self.__project_backlog.append(current_project)
 
     def work(self):
         """
@@ -59,3 +61,6 @@ class Employee:
 
         else:
             print("Invalid Project index. No project swapped.")
+
+
+
