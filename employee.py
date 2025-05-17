@@ -17,4 +17,29 @@ class Employee:
         self.__current_project = current_project
         self.__project_backlog = project_backlog if project_backlog is not None else []
 
+    def work(self):
+        """
+
+        :return:
+        """
+
+    def assign_project(self, project):
+        """
+
+        :param project:
+        :return:
+        """
+        if project not in self.__project_backlog:
+            self.__project_backlog.append(project)
+            print(f"{project} added to project backlog")
+        else:
+            print(f"{project} already in the project backlog")
+
+    def swap_project(self, project):
+        """
+
+        :param project:
+        :return:
+        """
+        pass
 
