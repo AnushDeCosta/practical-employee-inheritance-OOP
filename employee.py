@@ -63,4 +63,42 @@ class Employee:
             print("Invalid Project index. No project swapped.")
 
 
+class SoftwareDeveloper(Employee):
+    """
+    A Software Developer who works on projects using a programming language.
+    Inherits from Employee and adds developer-specific behavior.
+    """
+    def __init__(self, id, name, profession, current_project, current_language):
+        """
+        Initializes a Software Developer.
 
+        :param id: Unique identifier
+        :param name: Name of the developer
+        :param profession: Job title
+        :param current_project: The currently active project
+        :param current_language: The language currently being used
+        """
+        super().__init__(id, name, profession, current_project)
+        self.__language = current_language
+        self.__programming_languages = [current_language]
+
+    def work(self):
+        """
+        Overrides the Employee work method to include the language being used.
+        Prints what the developer is currently working on and in what language.
+
+        :return: None
+        """
+        print(f"Working on {self._Employee__current_project} in {self.__language}.")
+
+    def learn_language(self, language):
+        """
+        Adds a new language to the developer's known languages list if not already known.
+
+        :param language: The new programming language to learn (string)
+        :return: None
+        """
+        if language not in self.__programming_languages:
+            self.__programming_languages.append(language)
+        else:
+            print(f"{language} is already known.")
