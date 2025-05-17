@@ -3,6 +3,7 @@ class Employee:
     A blueprint for an Employee with details such as
     ID, Name, Profession, Current Projects and Project Backlog
     """
+
     def __init__(self, id, name, profession, current_project, project_backlog=None):
         """
         Initialises the employee class with
@@ -68,6 +69,7 @@ class SoftwareDeveloper(Employee):
     A Software Developer who works on projects using a programming language.
     Inherits from Employee and adds developer-specific behavior.
     """
+
     def __init__(self, id, name, profession, current_project, current_language):
         """
         Initializes a Software Developer.
@@ -102,3 +104,44 @@ class SoftwareDeveloper(Employee):
             self.__programming_languages.append(language)
         else:
             print(f"{language} is already known.")
+
+class DigitalArtist(Employee):
+    """
+    A Digital Artist who works on creative projects using digital tools.
+    Inherits from Employee and adds software-specific behavior.
+    """
+
+    def __init__(self, id, name, profession, current_project, current_software):
+        """
+        Initializes a Digital Artist.
+
+        :param id: Unique identifier
+        :param name: Name of the artist
+        :param profession: Job title
+        :param current_project: The currently active project
+        :param current_software: The digital software currently being used
+        """
+        super().__init__(id, name, profession, current_project)
+        self.__software = current_software
+        self.__suite = [current_software]
+
+    def work(self):
+        """
+        Overrides the Employee work method to include the software being used.
+        Prints what the artist is currently working on and in what software.
+
+        :return: None
+        """
+        print(f"Working on {self._Employee__current_project} using {self.__software}.")
+
+    def learn_software(self, software):
+        """
+        Adds new software to the artist's suite if not already known.
+
+        :param software: The name of the software to learn (string)
+        :return: None
+        """
+        if software not in self.__suite:
+            self.__suite.append(software)
+        else:
+            print(f"{software} is already known.")
